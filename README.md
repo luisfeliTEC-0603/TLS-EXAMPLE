@@ -7,6 +7,12 @@ This project demonstrates the implementation of mutual TLS (mTLS) authentication
 - TLS-secured socket communication
 - Two-way authentication (mTLS)
 
+## Technical Details
+- TLS 1.2+ enforcement with obsolete protocol versions disabled
+- Certificate verification for both client and server (mutual TLS)
+- TCP sockets with TLS protection layer
+- Complete TLS handshake with certificate validation
+
 ## Dependencies
 - C++17 compatible compiler (GCC 9+ or Clang 10+)
 - OpenSSL 1.1.1 or newer
@@ -52,6 +58,12 @@ Only after the credentials are validated with the `TLS` protocol, server and cli
 ## Considerations
 The generated certificates are for development only. As they lack a proper level of security, e.g. the current script doesn't currently password-protect private keys nor does it encrypts them.
 
+## Project Structure
+- `Client/` - TLS client implementation files
+- `Server/` - TLS server implementation files
+- `generate_certs.sh` - Script to create CA, server, and client certificates
+- `Makefile` - Build configuration file
+
 ## References 
- OpenSSL Documentation : https://docs.openssl.org/1.0.2/man3/
+OpenSSL Documentation: https://docs.openssl.org/1.0.2/man3/
 
